@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frandor Barbershop — Prototype Selector</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0d0d0d;color:#e0e0e0;font-family:'Inter',sans-serif;min-height:100vh;padding:60px 1.5rem 80px;}
+.container{max-width:1100px;margin:0 auto;}
+header{text-align:center;margin-bottom:60px;}
+header .logo-wrap img{height:80px;width:auto;margin:0 auto 1.5rem;}
+header h1{font-size:1.5rem;font-weight:600;color:#fff;letter-spacing:.04em;margin-bottom:.4rem;}
+header p{font-size:.9rem;color:#666;max-width:480px;margin:0 auto;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;}
+.card{background:#161616;border:1px solid #1f1f1f;border-radius:4px;overflow:hidden;transition:border-color .2s,transform .2s;cursor:pointer;text-decoration:none;display:block;}
+.card:hover{border-color:#444;transform:translateY(-3px);}
+.swatch{height:200px;display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;position:relative;overflow:hidden;}
+.swatch-title{font-size:1.8rem;font-weight:700;line-height:1;position:relative;z-index:2;}
+.swatch-sub{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;position:relative;z-index:2;margin-top:.3rem;opacity:.7;}
+.card-body{padding:1.2rem 1.5rem 1.5rem;}
+.card-name{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:#555;font-weight:600;margin-bottom:.4rem;}
+.card-desc{font-size:.88rem;color:#888;line-height:1.65;margin-bottom:1.2rem;}
+.card-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
+.tag{font-size:.7rem;padding:.2rem .6rem;border-radius:100px;background:#1f1f1f;color:#666;letter-spacing:.05em;}
+.open-btn{margin-top:1rem;display:inline-block;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;font-weight:600;padding:.5rem 1.2rem;background:#222;color:#aaa;border-radius:2px;transition:all .2s;}
+.card:hover .open-btn{background:#333;color:#fff;}
+
+/* V1 — Classic Heritage */
+.v1 .swatch{background:linear-gradient(135deg,#111 60%,#1B3A6B);}
+.v1 .swatch-title{font-family:Georgia,serif;color:#f0e6d3;}
+.v1 .swatch-sub{color:#7B3D26;}
+.v1 .open-btn{border-left:3px solid #7B3D26;}
+
+/* V2 — Modern Light */
+.v2 .swatch{background:linear-gradient(135deg,#F8F7F4,#E8E2D9);}
+.v2 .swatch-title{font-family:Georgia,serif;color:#1a1a1a;}
+.v2 .swatch-sub{color:#1B3A6B;}
+.v2 .open-btn{border-left:3px solid #1B3A6B;}
+
+/* V3 — Urban Bold */
+.v3 .swatch{background:#000;}
+.v3 .swatch::before{content:'BARBERS';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:5rem;font-weight:900;color:rgba(255,255,255,.04);white-space:nowrap;font-family:'Inter',sans-serif;letter-spacing:-.02em;}
+.v3 .swatch-title{font-family:'Inter',sans-serif;font-weight:900;color:#fff;text-transform:uppercase;font-size:2.2rem;}
+.v3 .swatch-sub{color:#7B3D26;}
+.v3 .open-btn{border-left:3px solid #7B3D26;}
+
+/* V4 — Warm Community */
+.v4 .swatch{background:linear-gradient(135deg,#3D2010,#5E3018);}
+.v4 .swatch-title{font-family:Georgia,serif;color:#FAF5EC;}
+.v4 .swatch-sub{color:#C87B3A;}
+.v4 .open-btn{border-left:3px solid #C87B3A;}
+
+/* V6 — Family Friendly */
+.v6 .swatch{background:linear-gradient(135deg,#1A2E3B,#2E86AB);}
+.v6 .swatch-title{font-family:'Inter',sans-serif;font-weight:900;color:#fff;}
+.v6 .swatch-sub{color:#F4A261;}
+.v6 .open-btn{border-left:3px solid #F4A261;}
+
+/* V5 — Luxury Premium */
+.v5 .swatch{background:linear-gradient(135deg,#141414,#1C1C1C);}
+.v5 .swatch::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(45deg);width:200px;height:200px;border:1px solid rgba(201,168,76,.15);pointer-events:none;}
+.v5 .swatch-title{font-family:Georgia,serif;font-style:italic;color:#F0EDE5;}
+.v5 .swatch-sub{color:#C9A84C;}
+.v5 .open-btn{border-left:3px solid #C9A84C;}
+
+footer-note{display:block;text-align:center;margin-top:50px;font-size:.78rem;color:#333;}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="logo-wrap">
+      <img src="logo.png" alt="Frandor Barbershop" onerror="this.style.display='none'">
+    </div>
+    <h1>Frandor Barbershop — Prototype Review</h1>
+    <p>Five distinct design concepts. Click any card to preview. Review and select your preferred direction.</p>
+  </header>
+
+  <div class="grid">
+
+    <a href="v1-classic.html" class="card v1">
+      <div class="swatch">
+        <div class="swatch-title">Classic Heritage</div>
+        <div class="swatch-sub">Dark · Serif · Traditional</div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Prototype 1</div>
+        <p class="card-desc">Dark background with the logo's brown &amp; navy color scheme. Playfair Display serif typography, barber pole accent stripes. Traditional barbershop aesthetic — timeless and trustworthy.</p>
+        <div class="card-tags">
+          <span class="tag">Dark theme</span>
+          <span class="tag">Serif type</span>
+          <span class="tag">Brown &amp; navy</span>
+          <span class="tag">Classic feel</span>
+        </div>
+        <span class="open-btn">Open Prototype →</span>
+      </div>
+    </a>
+
+    <a href="v2-modern.html" class="card v2">
+      <div class="swatch">
+        <div class="swatch-title">Modern Light</div>
+        <div class="swatch-sub">Light · Clean · Minimal</div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Prototype 2</div>
+        <p class="card-desc">Light cream/white background with navy &amp; brown accents. DM Serif Display + DM Sans fonts. Split hero layout. Clean, architectural feel — modern and sophisticated.</p>
+        <div class="card-tags">
+          <span class="tag">Light theme</span>
+          <span class="tag">Minimal</span>
+          <span class="tag">Split hero</span>
+          <span class="tag">Airy feel</span>
+        </div>
+        <span class="open-btn">Open Prototype →</span>
+      </div>
+    </a>
+
+    <a href="v3-urban.html" class="card v3">
+      <div class="swatch">
+        <div class="swatch-title">Urban Bold</div>
+        <div class="swatch-sub">Black · Condensed · Impact</div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Prototype 3</div>
+        <p class="card-desc">Pure black with giant Oswald condensed typography. Background watermark text, numbered service list, high-contrast gallery. Urban streetwear energy meets barbershop craft.</p>
+        <div class="card-tags">
+          <span class="tag">Black theme</span>
+          <span class="tag">Bold type</span>
+          <span class="tag">Urban feel</span>
+          <span class="tag">High contrast</span>
+        </div>
+        <span class="open-btn">Open Prototype →</span>
+      </div>
+    </a>
+
+    <a href="v4-warm.html" class="card v4">
+      <div class="swatch">
+        <div class="swatch-title">Warm Community</div>
+        <div class="swatch-sub">Cream · Amber · Welcoming</div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Prototype 4</div>
+        <p class="card-desc">Warm cream &amp; amber tones with Merriweather serif. Testimonials and community story come before pricing. Neighborhood barbershop energy — friendly, approachable, trusted.</p>
+        <div class="card-tags">
+          <span class="tag">Warm tones</span>
+          <span class="tag">Community-first</span>
+          <span class="tag">Reviews front &amp; center</span>
+          <span class="tag">Inviting</span>
+        </div>
+        <span class="open-btn">Open Prototype →</span>
+      </div>
+    </a>
+
+    <a href="v6-family.html" class="card v6">
+      <div class="swatch">
+        <div class="swatch-title">Family Friendly</div>
+        <div class="swatch-sub">Blue · Orange · Welcoming</div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Prototype 6</div>
+        <p class="card-desc">Sky blue &amp; orange with rounded Nunito font. Features a "Why Families Love Us" section, highlighted Kids Cut service, and the Jerry/son testimonial as the hero review. Bright, cheerful, and approachable.</p>
+        <div class="card-tags">
+          <span class="tag">Light theme</span>
+          <span class="tag">Family focus</span>
+          <span class="tag">Kids highlighted</span>
+          <span class="tag">Bright &amp; friendly</span>
+        </div>
+        <span class="open-btn">Open Prototype →</span>
+      </div>
+    </a>
+
+    <a href="v5-luxury.html" class="card v5">
+      <div class="swatch">
+        <div class="swatch-title"><em>Luxury Premium</em></div>
+        <div class="swatch-sub">Charcoal · Gold · Elevated</div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Prototype 5</div>
+        <p class="card-desc">Deep charcoal with gold accents and Cormorant Garant elegant serif. Diamond decorative elements, gold rule lines, generous spacing. Upscale grooming lounge aesthetic — aspirational and refined.</p>
+        <div class="card-tags">
+          <span class="tag">Dark charcoal</span>
+          <span class="tag">Gold accents</span>
+          <span class="tag">Elegant serif</span>
+          <span class="tag">Luxury feel</span>
+        </div>
+        <span class="open-btn">Open Prototype →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <footer-note>All prototypes use placeholder images and content. Real photos, prices, and info can be dropped in once a direction is chosen.</footer-note>
+</div>
+
+</body>
+</html>

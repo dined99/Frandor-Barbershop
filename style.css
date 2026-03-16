@@ -1,0 +1,628 @@
+/* ============================================================
+   FRANDOR BARBERS — Brand Theme
+   Colors from logo: brown #7B3D26 · navy #1B3A6B · white
+   ============================================================ */
+
+:root {
+  --brown: #7B3D26;
+  --brown-dark: #5E2D1A;
+  --navy: #1B3A6B;
+  --navy-dark: #132B52;
+  --dark: #0f0f0f;
+  --dark-2: #181818;
+  --dark-3: #212121;
+  --dark-4: #2b2b2b;
+  --cream: #f0e6d3;
+  --light: #e8e8e8;
+  --muted: #999999;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Lato', Arial, sans-serif;
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--dark-2);
+  color: var(--light);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a { color: var(--brown); text-decoration: none; }
+a:hover { color: var(--cream); }
+
+img { max-width: 100%; display: block; }
+
+/* ── Section Utility ──────────────────────────────────────── */
+.section { padding: 80px 0; }
+.section-dark { background-color: var(--dark-2); }
+.section-darker { background-color: var(--dark); }
+.section-alt { background-color: var(--dark-3); }
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  color: var(--cream);
+  margin-bottom: 0.3rem;
+}
+
+.section-subtitle {
+  color: var(--muted);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.divider {
+  width: 60px;
+  height: 3px;
+  background: var(--brown);
+  margin: 0 auto 2.5rem;
+}
+
+.divider-left {
+  margin-left: 0;
+}
+
+/* ── Navbar ───────────────────────────────────────────────── */
+.navbar {
+  background-color: var(--dark) !important;
+  border-bottom: 3px solid var(--navy);
+  padding: 0.75rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cream) !important;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.navbar-brand .brand-logo {
+  height: 42px;
+  width: auto;
+}
+
+.navbar-brand .brand-text span {
+  color: var(--brown);
+}
+
+.navbar .nav-link {
+  color: var(--light) !important;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem !important;
+  transition: color 0.2s;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--brown) !important;
+}
+
+.navbar-toggler {
+  border-color: var(--navy);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2827, 58, 107, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* ── Hero ─────────────────────────────────────────────────── */
+#hero {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,0.90) 0%,
+    rgba(10,15,30,0.82) 100%
+  ),
+  repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(27,58,107,0.05) 20px,
+    rgba(27,58,107,0.05) 40px
+  );
+  background-color: var(--dark);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: var(--cream);
+  line-height: 1.05;
+  margin-bottom: 0.5rem;
+}
+
+/* "Frandor" in brown like the logo script */
+.hero-title .brand-name {
+  color: var(--brown);
+}
+
+/* "BARBERS" in navy like the logo banner */
+.hero-title .brand-sub {
+  color: var(--navy);
+  font-size: 0.65em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 900;
+}
+
+.hero-tagline {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 2rem;
+  font-family: var(--font-display);
+}
+
+.hero-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, var(--brown), var(--navy));
+  margin-bottom: 2rem;
+}
+
+.hero-phone {
+  font-size: 1.5rem;
+  color: var(--cream);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.hero-phone a {
+  color: var(--cream);
+}
+
+.hero-phone a:hover {
+  color: var(--brown);
+}
+
+.btn-navy {
+  background-color: var(--navy);
+  border: none;
+  color: #fff;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.8rem 2.2rem;
+  border-radius: 2px;
+  transition: background 0.2s;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.btn-navy:hover {
+  background-color: var(--navy-dark);
+  color: #fff;
+}
+
+.btn-outline-cream {
+  border: 2px solid var(--cream);
+  color: var(--cream);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+  border-radius: 2px;
+  transition: all 0.2s;
+  display: inline-block;
+  font-weight: 700;
+}
+
+.btn-outline-cream:hover {
+  background-color: var(--cream);
+  color: var(--dark);
+}
+
+/* Barber pole decorative stripe — matches logo's brown/white/navy */
+.hero-pole {
+  position: absolute;
+  right: 8%;
+  top: 0;
+  height: 100%;
+  width: 60px;
+  opacity: 0.09;
+  background: repeating-linear-gradient(
+    -45deg,
+    #7B3D26 0px,
+    #7B3D26 20px,
+    #ffffff 20px,
+    #ffffff 40px,
+    #1B3A6B 40px,
+    #1B3A6B 60px
+  );
+}
+
+/* ── Services ─────────────────────────────────────────────── */
+#services .service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  gap: 1rem;
+}
+
+#services .service-item:last-child {
+  border-bottom: none;
+}
+
+#services .service-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--cream);
+  margin: 0;
+}
+
+#services .service-desc {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.3;
+}
+
+#services .service-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--brown);
+  white-space: nowrap;
+  font-family: var(--font-display);
+}
+
+#services .services-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* ── Gallery ──────────────────────────────────────────────── */
+#gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+#gallery .gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  background-color: var(--dark-4);
+}
+
+#gallery .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+#gallery .gallery-item:hover img {
+  transform: scale(1.07);
+}
+
+#gallery .gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(27,58,107,0.0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+  color: #fff;
+  font-size: 2rem;
+  opacity: 0;
+}
+
+#gallery .gallery-item:hover .gallery-overlay {
+  background: rgba(0,0,0,0.6);
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  #gallery .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ── Testimonials ─────────────────────────────────────────── */
+#testimonials .testimonial-card {
+  background: var(--dark-4);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-top: 3px solid var(--navy);
+  border-radius: 4px;
+  padding: 2rem;
+  height: 100%;
+}
+
+#testimonials .stars {
+  color: #c9a84c;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+#testimonials .quote {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--cream);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+#testimonials .quote::before { content: '\201C'; color: var(--brown); }
+#testimonials .quote::after  { content: '\201D'; color: var(--brown); }
+
+#testimonials .reviewer {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+/* ── About / Team ─────────────────────────────────────────── */
+#about .team-card {
+  text-align: center;
+}
+
+#about .team-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--navy);
+  margin: 0 auto 1.2rem;
+  background-color: var(--dark-4);
+}
+
+#about .team-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--cream);
+  margin-bottom: 0.2rem;
+}
+
+#about .team-role {
+  font-size: 0.8rem;
+  color: var(--brown);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+#about .team-bio {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+#about .about-text {
+  font-size: 1.05rem;
+  color: var(--light);
+  line-height: 1.8;
+}
+
+/* ── Contact ──────────────────────────────────────────────── */
+#contact .contact-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--brown);
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+#contact .contact-value {
+  font-size: 1.05rem;
+  color: var(--cream);
+  margin-bottom: 1.4rem;
+}
+
+#contact .contact-value a {
+  color: var(--cream);
+}
+
+#contact .contact-value a:hover {
+  color: var(--brown);
+}
+
+#contact .hours-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#contact .hours-table tr {
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+#contact .hours-table td {
+  padding: 0.45rem 0;
+  color: var(--light);
+  font-size: 0.95rem;
+}
+
+#contact .hours-table td:first-child {
+  color: var(--muted);
+  width: 120px;
+}
+
+#contact .hours-table .closed-day td {
+  color: var(--muted);
+  font-style: italic;
+}
+
+#contact .map-container {
+  width: 100%;
+  height: 350px;
+  background: var(--dark-4);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: var(--muted);
+}
+
+#contact .map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+#contact .map-placeholder-icon {
+  font-size: 3rem;
+  opacity: 0.4;
+}
+
+/* ── CTA Band ─────────────────────────────────────────────── */
+.cta-band {
+  background-color: var(--navy);
+  padding: 50px 0;
+  text-align: center;
+  border-top: 4px solid var(--brown);
+  border-bottom: 4px solid var(--brown);
+}
+
+.cta-band h2 {
+  font-family: var(--font-display);
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cta-band p {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-white {
+  background-color: #fff;
+  color: var(--navy);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.8rem 2.2rem;
+  border-radius: 2px;
+  font-weight: 700;
+  display: inline-block;
+  transition: background 0.2s;
+}
+
+.btn-white:hover {
+  background-color: var(--cream);
+  color: var(--navy-dark);
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+footer {
+  background-color: var(--dark);
+  border-top: 3px solid var(--navy);
+  padding: 40px 0 20px;
+}
+
+footer .footer-brand {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+
+footer .footer-brand span {
+  color: var(--brown);
+}
+
+footer .footer-tagline {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+footer .footer-heading {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brown);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+footer .footer-text {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+footer .social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+footer .social-links a {
+  color: var(--muted);
+  font-size: 1.3rem;
+  transition: color 0.2s;
+}
+
+footer .social-links a:hover {
+  color: var(--brown);
+}
+
+footer .footer-copy {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+}

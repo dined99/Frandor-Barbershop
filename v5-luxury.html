@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frandor Barbershop — Luxury Premium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" rel="stylesheet">
+<style>
+:root{--gd:#C9A84C;--gd-l:#E3C97A;--gd-d:#9E7B2A;--dk:#141414;--dk2:#1C1C1C;--dk3:#252525;--dk4:#2E2E2E;--lt:#F0EDE5;--mu:#6E6860;--wh:#fff;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--dk);color:var(--lt);font-family:'Raleway',sans-serif;font-weight:300;line-height:1.8;}
+h1,h2,h3,h4{font-family:'Cormorant Garant',serif;line-height:1.1;}
+a{color:var(--gd);text-decoration:none;}a:hover{color:var(--gd-l);}
+img{max-width:100%;display:block;}
+
+/* NAV */
+.site-nav{background:var(--dk);border-bottom:1px solid rgba(201,168,76,.2);position:sticky;top:0;z-index:999;padding:.9rem 0;}
+.brand{font-family:'Cormorant Garant',serif;font-size:1.45rem;font-weight:600;color:var(--lt);letter-spacing:.08em;display:flex;align-items:center;gap:.7rem;}
+.brand img{height:40px;width:auto;}
+.brand .bn{color:var(--gd);}
+.nav-links a{color:var(--mu);font-family:'Raleway',sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;padding:.4rem 1rem;transition:color .2s;}
+.nav-links a:hover{color:var(--gd);}
+
+/* GOLD RULE */
+.gold-rule{height:1px;background:linear-gradient(to right,transparent,var(--gd),transparent);margin:0;}
+
+/* HERO */
+#hero{min-height:100vh;background:var(--dk);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 1.5rem;position:relative;overflow:hidden;}
+.hero-bg-diamond{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(45deg);width:60vmax;height:60vmax;border:1px solid rgba(201,168,76,.04);pointer-events:none;}
+.hero-bg-diamond2{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(45deg);width:40vmax;height:40vmax;border:1px solid rgba(201,168,76,.06);pointer-events:none;}
+.hero-inner{position:relative;z-index:2;max-width:760px;}
+.hero-logo-wrap{margin-bottom:2rem;}
+.hero-logo-wrap img{height:90px;width:auto;margin:0 auto;}
+.hero-logo-fallback{font-family:'Cormorant Garant',serif;font-size:1.1rem;font-weight:600;letter-spacing:.4em;text-transform:uppercase;color:var(--gd);opacity:.7;}
+.hero-rule{width:100px;height:1px;background:linear-gradient(to right,transparent,var(--gd),transparent);margin:1.5rem auto;}
+.hero-h1{font-size:clamp(3.5rem,9vw,8rem);color:var(--lt);font-weight:600;letter-spacing:.02em;margin-bottom:.2rem;}
+.hero-h1 em{color:var(--gd);font-style:italic;}
+.hero-tagline{font-family:'Cormorant Garant',serif;font-style:italic;font-size:1.4rem;color:var(--mu);margin:1rem 0 2rem;letter-spacing:.03em;}
+.hero-rule2{width:60px;height:1px;background:var(--gd);margin:0 auto 2rem;}
+.hero-pre{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mu);font-weight:500;margin-bottom:.5rem;}
+.btn-gd{border:1px solid var(--gd);color:var(--gd);font-family:'Raleway',sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;padding:.75rem 2.2rem;display:inline-block;transition:all .2s;}
+.btn-gd:hover{background:var(--gd);color:var(--dk);}
+.btn-ghost{border:1px solid rgba(240,237,229,.25);color:var(--mu);font-family:'Raleway',sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;padding:.75rem 2rem;display:inline-block;transition:all .2s;}
+.btn-ghost:hover{border-color:var(--lt);color:var(--lt);}
+
+/* INTRO STRIP */
+.intro-strip{background:var(--dk2);border-top:1px solid rgba(201,168,76,.15);border-bottom:1px solid rgba(201,168,76,.15);padding:.8rem 0;text-align:center;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--mu);}
+.intro-strip span{color:var(--gd);margin:0 1.2rem;}
+
+/* SERVICES */
+#services{background:var(--dk2);padding:110px 0;}
+.sec-pre{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gd);font-weight:500;margin-bottom:.8rem;}
+.sec-h2{font-size:clamp(2.2rem,5vw,4rem);color:var(--lt);}
+.sec-h2 em{color:var(--gd);font-style:italic;}
+.gold-hr{width:50px;height:1px;background:var(--gd);margin-bottom:3rem;}
+.gold-hr.c{margin-left:auto;margin-right:auto;}
+.svc-row{display:flex;align-items:center;padding:1.3rem 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.svc-row:last-child{border-bottom:none;}
+.svc-dot{width:6px;height:6px;border-radius:50%;background:var(--gd);flex-shrink:0;margin-right:1.5rem;}
+.svc-name{font-family:'Cormorant Garant',serif;font-size:1.2rem;color:var(--lt);flex:1;letter-spacing:.02em;}
+.svc-desc{font-size:.78rem;color:var(--mu);flex:2;padding:0 1rem;}
+.svc-price{font-family:'Cormorant Garant',serif;font-size:1.5rem;color:var(--gd);font-weight:600;white-space:nowrap;}
+@media(max-width:576px){.svc-desc{display:none;}}
+
+/* GALLERY */
+#gallery{background:var(--dk);padding:110px 0;}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;}
+.g-item{position:relative;aspect-ratio:1;overflow:hidden;background:var(--dk4);}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.g-item:hover img{transform:scale(1.05);}
+.g-ov{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;opacity:0;transition:all .35s;font-size:1.5rem;color:var(--gd);}
+.g-item:hover .g-ov{background:rgba(20,20,20,.7);opacity:1;}
+@media(max-width:576px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--dk2);padding:110px 0;}
+.t-big{font-family:'Cormorant Garant',serif;font-style:italic;font-size:clamp(1.6rem,4vw,2.8rem);color:var(--lt);line-height:1.35;margin-bottom:1.5rem;}
+.t-big .qt{color:var(--gd);}
+.t-attr{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mu);}
+.t-stars{color:var(--gd);font-size:.85rem;margin-bottom:.5rem;letter-spacing:.2em;}
+.t-mini{border-top:1px solid rgba(255,255,255,.05);padding-top:1.5rem;}
+.t-mini-q{font-family:'Cormorant Garant',serif;font-style:italic;color:var(--lt);font-size:1.1rem;line-height:1.65;margin-bottom:.7rem;}
+.t-mini-attr{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mu);}
+
+/* ABOUT */
+#about{background:var(--dk);padding:110px 0;}
+.about-p{color:rgba(240,237,229,.75);font-size:1rem;line-height:1.9;margin-bottom:1.2rem;}
+.about-pull{font-family:'Cormorant Garant',serif;font-style:italic;font-size:1.5rem;color:var(--lt);padding-left:1.5rem;border-left:2px solid var(--gd);margin:2rem 0;line-height:1.5;}
+.team-card{text-align:center;padding:2rem 1.5rem;}
+.t-photo{width:110px;height:110px;border-radius:50%;border:1px solid rgba(201,168,76,.4);margin:0 auto 1rem;background:var(--dk4);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.t-name2{font-family:'Cormorant Garant',serif;font-size:1.2rem;color:var(--lt);letter-spacing:.04em;}
+.t-role{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gd);margin:.2rem 0 .6rem;}
+.t-bio{font-size:.83rem;color:var(--mu);line-height:1.65;}
+
+/* CTA */
+.cta-band{background:var(--dk3);border-top:1px solid rgba(201,168,76,.2);border-bottom:1px solid rgba(201,168,76,.2);padding:70px 0;text-align:center;}
+.cta-band h2{font-family:'Cormorant Garant',serif;color:var(--lt);font-size:clamp(2rem,5vw,3.5rem);margin-bottom:.4rem;}
+.cta-band p{color:var(--mu);font-size:1rem;margin-bottom:2rem;}
+.cta-phone{font-family:'Cormorant Garant',serif;font-size:2rem;color:var(--gd);letter-spacing:.05em;display:block;margin-bottom:1.5rem;}
+.cta-phone a{color:var(--gd);}
+
+/* CONTACT */
+#contact{background:var(--dk2);padding:110px 0;}
+.c-label{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gd);font-weight:500;margin-bottom:.2rem;}
+.c-val{color:var(--lt);font-size:1rem;margin-bottom:1.3rem;line-height:1.7;}
+.c-val a{color:var(--lt);}
+.hrs-table{width:100%;border-collapse:collapse;}
+.hrs-table tr{border-bottom:1px solid rgba(255,255,255,.04);}
+.hrs-table td{padding:.45rem 0;font-size:.9rem;}
+.hrs-table td:first-child{color:var(--mu);width:110px;}
+.closed td{color:var(--mu);font-style:italic;}
+.map-box{width:100%;height:340px;background:var(--dk4);border:1px solid rgba(201,168,76,.12);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.6rem;color:var(--mu);}
+.map-box iframe{width:100%;height:100%;border:0;display:block;}
+
+/* FOOTER */
+footer{background:var(--dk);border-top:1px solid rgba(201,168,76,.15);padding:45px 0 18px;}
+.f-brand{font-family:'Cormorant Garant',serif;font-size:1.4rem;color:var(--lt);}
+.f-brand .bn{color:var(--gd);}
+.f-tag{color:var(--mu);font-size:.85rem;font-style:italic;font-family:'Cormorant Garant',serif;margin-top:.3rem;}
+.f-h{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gd);font-weight:500;margin-bottom:.8rem;}
+.f-body{font-size:.85rem;color:var(--mu);line-height:1.75;}
+.f-body a{color:var(--mu);}
+.f-social a{color:var(--mu);font-size:1.2rem;margin-right:.9rem;transition:color .2s;}
+.f-social a:hover{color:var(--gd);}
+.f-copy{border-top:1px solid rgba(255,255,255,.04);margin-top:2rem;padding-top:1rem;font-size:.72rem;color:rgba(110,104,96,.6);text-align:center;letter-spacing:.1em;}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="brand" href="#hero">
+      <img src="logo.png" alt="Frandor" onerror="this.style.display='none'">
+      <span><span class="bn">Frandor</span> Barbershop</span>
+    </a>
+    <div class="nav-links d-none d-md-flex">
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="gold-rule"></div>
+
+<section id="hero">
+  <div class="hero-bg-diamond"></div>
+  <div class="hero-bg-diamond2"></div>
+  <div class="hero-inner">
+    <div class="hero-logo-wrap">
+      <img src="logo.png" alt="Frandor Barbershop" onerror="this.remove()">
+    </div>
+    <div class="hero-pre">Lansing Michigan &nbsp;·&nbsp; Est. by Jerry</div>
+    <div class="hero-rule"></div>
+    <h1 class="hero-h1"><em>Frandor</em><br>Barbershop</h1>
+    <p class="hero-tagline">Classic cuts. Sharp looks. Every time.</p>
+    <div class="hero-rule2"></div>
+    <div class="d-flex justify-content-center flex-wrap gap-3">
+      <a href="#services" class="btn-gd">Our Services</a>
+      <a href="#contact" class="btn-ghost">Find Us</a>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<div class="intro-strip">
+  No appointment needed
+  <span>·</span>
+  Five master barbers
+</div>
+
+<section id="services">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="sec-pre">The Craft</p>
+      <h2 class="sec-h2">Services &amp; <em>Pricing</em></h2>
+      <div class="gold-hr c mt-3"></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-md-10">
+        <div class="svc-row"><div class="svc-dot"></div><p class="svc-name">Senior &amp; Kids Cut</p><p class="svc-desc">Ages 12 &amp; under and senior clients — patient and skilled</p><div class="svc-price">$22</div></div>
+        <div class="svc-row"><div class="svc-dot"></div><p class="svc-name">Regular Haircut</p><p class="svc-desc">Classic or modern cut — personal consultation included</p><div class="svc-price">$25</div></div>
+        <div class="svc-row"><div class="svc-dot"></div><p class="svc-name">Regular with Beard</p><p class="svc-desc">Complete grooming — full cut with beard trim combo</p><div class="svc-price">$32</div></div>
+        <div class="svc-row"><div class="svc-dot"></div><p class="svc-name">Bald Fade</p><p class="svc-desc">Precision bald fade, clean and detailed finish</p><div class="svc-price">$28</div></div>
+        <div class="svc-row"><div class="svc-dot"></div><p class="svc-name">Bald Fade with Beard</p><p class="svc-desc">Bald fade combined with precision beard trim</p><div class="svc-price">$35</div></div>
+        <div class="svc-row"><div class="svc-dot"></div><p class="svc-name">Beard Only</p><p class="svc-desc">Precision shaping, line up &amp; detailed finish</p><div class="svc-price">$10</div></div>
+        <p class="text-center mt-4" style="font-size:.78rem;color:var(--mu);font-style:italic;letter-spacing:.05em">All barbers are equally trained in every service — same precision at every chair.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<section id="gallery">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="sec-pre">The Work</p>
+      <h2 class="sec-h2">Our <em>Gallery</em></h2>
+      <div class="gold-hr c mt-3"></div>
+    </div>
+    <div class="gallery-grid">
+      <a href="https://placehold.co/900x900/141414/C9A84C?text=Fade" class="g-item glightbox" data-gallery="g1"><img src="https://placehold.co/500x500/141414/C9A84C?text=Fade" alt="Fade"><div class="g-ov"><i class="bi bi-zoom-in"></i></div></a>
+      <a href="https://placehold.co/900x900/1C1C1C/F0EDE5?text=Taper" class="g-item glightbox" data-gallery="g1"><img src="https://placehold.co/500x500/1C1C1C/F0EDE5?text=Taper" alt="Taper"><div class="g-ov"><i class="bi bi-zoom-in"></i></div></a>
+      <a href="https://placehold.co/900x900/252525/C9A84C?text=Beard" class="g-item glightbox" data-gallery="g1"><img src="https://placehold.co/500x500/252525/C9A84C?text=Beard" alt="Beard"><div class="g-ov"><i class="bi bi-zoom-in"></i></div></a>
+      <a href="https://placehold.co/900x900/141414/E3C97A?text=Design" class="g-item glightbox" data-gallery="g1"><img src="https://placehold.co/500x500/141414/E3C97A?text=Design" alt="Design"><div class="g-ov"><i class="bi bi-zoom-in"></i></div></a>
+      <a href="https://placehold.co/900x900/2E2E2E/F0EDE5?text=Crop" class="g-item glightbox" data-gallery="g1"><img src="https://placehold.co/500x500/2E2E2E/F0EDE5?text=Crop" alt="Crop"><div class="g-ov"><i class="bi bi-zoom-in"></i></div></a>
+      <a href="https://placehold.co/900x900/1C1C1C/C9A84C?text=Shave" class="g-item glightbox" data-gallery="g1"><img src="https://placehold.co/500x500/1C1C1C/C9A84C?text=Shave" alt="Shave"><div class="g-ov"><i class="bi bi-zoom-in"></i></div></a>
+      <a href="https://placehold.co/900x900/252525/E3C97A?text=Fade+2" class="g-item glightbox" data-gallery="g1"><img src="https://placehold.co/500x500/252525/E3C97A?text=Fade+2" alt="Fade 2"><div class="g-ov"><i class="bi bi-zoom-in"></i></div></a>
+      <a href="https://placehold.co/900x900/141414/F0EDE5?text=Beard+2" class="g-item glightbox" data-gallery="g1"><img src="https://placehold.co/500x500/141414/F0EDE5?text=Beard+2" alt="Beard 2"><div class="g-ov"><i class="bi bi-zoom-in"></i></div></a>
+      <a href="https://placehold.co/900x900/1C1C1C/C9A84C?text=Shop" class="g-item glightbox" data-gallery="g1"><img src="https://placehold.co/500x500/2E2E2E/C9A84C?text=Shop" alt="Shop"><div class="g-ov"><i class="bi bi-zoom-in"></i></div></a>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<section id="testimonials">
+  <div class="container">
+    <div class="row align-items-start g-5">
+      <div class="col-lg-6">
+        <p class="sec-pre mb-2">Client Words</p>
+        <div class="t-stars">★ ★ ★ ★ ★</div>
+        <p class="t-big"><span class="qt">"</span>The best barbershop around and it's not close. They could pack up and move out of state — and I would still travel to get my haircut by Jerry and his staff.<span class="qt">"</span></p>
+        <p class="t-attr">— Google Review</p>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-4">
+          <div class="col-12"><div class="t-mini"><div class="t-stars">★ ★ ★ ★ ★</div><p class="t-mini-q">"Jerry has been my son's barber for almost his entire life. He absolutely hated haircuts — now he asks to go. Great shop, even greater human."</p><p class="t-mini-attr">— Google Review</p></div></div>
+          <div class="col-12"><div class="t-mini"><div class="t-stars">★ ★ ★ ★ ★</div><p class="t-mini-q">"In town for work. Joel gave me my cut and beard trim — all I said was 'I'll have what you've got!' Perfect result. Surprisingly low price."</p><p class="t-mini-attr">— Google Review</p></div></div>
+          <div class="col-12"><div class="t-mini"><div class="t-stars">★ ★ ★ ★ ★</div><p class="t-mini-q">"Super friendly, amazing every time. I drive 40 minutes for a haircut here. Four barbers — in and out in about 40 minutes."</p><p class="t-mini-attr">— Google Review</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<section id="about">
+  <div class="container">
+    <div class="row g-5 align-items-center mb-5">
+      <div class="col-lg-6">
+        <p class="sec-pre">The Story</p>
+        <h2 class="sec-h2">About <em>Frandor</em></h2>
+        <div class="gold-hr mt-3"></div>
+        <p class="about-p">At Frandor Barber Shop, we believe getting a haircut should be more than just a routine—it should be an experience. Our talented team of barbers, led by Jerry, takes pride in providing precision cuts, fades, and beard trims, all while creating a welcoming, relaxed atmosphere where everyone feels at home.</p>
+        <p class="about-p">From toddlers getting their first haircut to seasoned clients who travel from across town, we treat every guest with care and attention, ensuring they leave looking sharp and feeling great. With a friendly, approachable team, classic barber shop vibes, and a commitment to going above and beyond, we're proud to be the place where haircuts meet community. Stop in, sit back, and let us take care of you—you'll leave looking your best every time.</p>
+      </div>
+      <div class="col-lg-6">
+        <div style="height:300px;background:var(--dk3);border:1px solid rgba(201,168,76,.1);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;color:var(--mu)"><i class="bi bi-shop" style="font-size:2.5rem;opacity:.2"></i><span style="font-size:.72rem;opacity:.35;letter-spacing:.15em;text-transform:uppercase">Shop Photo</span></div>
+      </div>
+    </div>
+    <div class="text-center mb-5"><p class="sec-pre">The Team</p><h2 class="sec-h2">Your <em>Barbers</em></h2><div class="gold-hr c mt-3"></div></div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-lg-3 col-md-4 col-6"><div class="team-card"><div class="t-photo"><i class="bi bi-person-fill" style="font-size:2.8rem;color:var(--mu);opacity:.3"></i></div><h4 class="t-name2">Barber 1</h4><p class="t-role">Barber</p><p class="t-bio">Description of barber, what they specialize in etc</p></div></div>
+      <div class="col-lg-3 col-md-4 col-6"><div class="team-card"><div class="t-photo"><i class="bi bi-person-fill" style="font-size:2.8rem;color:var(--mu);opacity:.3"></i></div><h4 class="t-name2">Barber 3</h4><p class="t-role">Barber</p><p class="t-bio">Description of barber, what they specialize in etc</p></div></div>
+      <div class="col-lg-3 col-md-4 col-6"><div class="team-card"><div class="t-photo"><i class="bi bi-person-fill" style="font-size:2.8rem;color:var(--mu);opacity:.3"></i></div><h4 class="t-name2">Barber 4</h4><p class="t-role">Barber</p><p class="t-bio">Description of barber, what they specialize in etc</p></div></div>
+      <div class="col-lg-3 col-md-4 col-6"><div class="team-card"><div class="t-photo"><i class="bi bi-person-fill" style="font-size:2.8rem;color:var(--mu);opacity:.3"></i></div><h4 class="t-name2">Barber 5</h4><p class="t-role">Barber</p><p class="t-bio">Description of barber, what they specialize in etc</p></div></div>
+      <div class="col-lg-3 col-md-4 col-6"><div class="team-card"><div class="t-photo"><i class="bi bi-person-fill" style="font-size:2.8rem;color:var(--mu);opacity:.3"></i></div><h4 class="t-name2">Barber 5</h4><p class="t-role">Owner &amp; Master Barber</p><p class="t-bio">Description of barber, what they specialize in etc</p></div></div>   
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<div class="cta-band">
+  <div class="container">
+    <h2>Walk In. Leave Looking Sharp.</h2>
+    <p>No appointment needed. Five barbers ready to serve.</p>
+    <p class="cta-phone"><a href="tel:5550000000"><i class="bi bi-telephone-fill me-2" style="font-size:.9em"></i>(555) 000-0000</a></p>
+    <a href="#contact" class="btn-gd">View Hours &amp; Location</a>
+  </div>
+</div>
+
+<section id="contact">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="sec-pre">Find Us</p>
+      <h2 class="sec-h2">Contact &amp; <em>Hours</em></h2>
+      <div class="gold-hr c mt-3"></div>
+    </div>
+    <div class="row g-5">
+      <div class="col-lg-5">
+        <p class="c-label">Telephone</p><p class="c-val"><a href="tel:5550000000">(555) 000-0000</a></p>
+        <p class="c-label">Address</p><p class="c-val">123 Main Street<br>Your City, ST 00000</p>
+        <p class="c-label">Hours of Operation</p>
+        <table class="hrs-table">
+          <tr><td>Mon – Fri</td><td>9:00 AM – 7:00 PM</td></tr>
+          <tr><td>Saturday</td><td>9:00 AM – 5:00 PM</td></tr>
+          <tr class="closed"><td>Sunday</td><td>Closed</td></tr>
+        </table>
+        <div class="mt-4 f-social">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-7"><div class="map-box"><i class="bi bi-map" style="font-size:2rem;opacity:.2"></i><p style="font-size:.8rem;margin:0;letter-spacing:.1em;text-transform:uppercase;font-size:.7rem">Google Maps Embed<br><span style="opacity:.4;font-size:.72rem;text-transform:none;letter-spacing:0">Paste your &lt;iframe&gt; from Google Maps</span></p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4"><p class="f-brand"><span class="bn">Frandor</span> Barbershop</p><p class="f-tag">Classic cuts. Sharp looks. Every time.</p><div class="f-social mt-3"><a href="#"><i class="bi bi-facebook"></i></a></div></div>
+      <div class="col-md-3"><p class="f-h">Navigation</p><ul style="list-style:none;padding:0" class="f-body"><li><a href="#services">Services</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div class="col-md-5"><p class="f-h">Location</p><p class="f-body">123 Main Street<br>Your City, ST 00000<br><a href="tel:5550000000">(555) 000-0000</a></p></div>
+    </div>
+    <div class="f-copy">&copy; 2026 &nbsp;·&nbsp; Frandor Barbershop &nbsp;·&nbsp; All rights reserved</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script>
+<script>GLightbox({touchNavigation:true,loop:true});</script>
+</body>
+</html>
