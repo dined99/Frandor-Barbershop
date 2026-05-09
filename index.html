@@ -27,6 +27,11 @@ img{max-width:100%;display:block;}
 .nav-links a:hover{color:var(--br);}
 .nav-toggler{background:none;border:1px solid var(--nv);color:var(--lt);padding:0.3rem 0.6rem;cursor:pointer;}
 
+/* MOBILE MENU */
+.mobile-nav-links{background:var(--dk);border-top:1px solid rgba(255,255,255,.07);padding:.5rem 0;}
+.mobile-nav-links a{display:block;color:var(--lt);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;padding:.75rem 1.5rem;transition:color .2s;}
+.mobile-nav-links a:hover{color:var(--br);}
+
 /* HERO */
 #hero{min-height:100vh;background:var(--dk);display:flex;align-items:center;position:relative;overflow:hidden;}
 .pole{position:absolute;right:6%;top:0;height:100%;width:50px;opacity:.07;background:repeating-linear-gradient(-45deg,#7B3D26 0,#7B3D26 18px,#fff 18px,#fff 36px,#1B3A6B 36px,#1B3A6B 54px);}
@@ -130,6 +135,16 @@ footer{background:var(--dk);border-top:3px solid var(--nv);padding:40px 0 18px;}
       <a href="#services">Services</a>
       <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
+    </div>
+    <button class="nav-toggler d-md-none" data-bs-toggle="collapse" data-bs-target="#mobile-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="bi bi-list" style="font-size:1.4rem;"></i>
+    </button>
+  </div>
+  <div class="collapse" id="mobile-menu">
+    <div class="mobile-nav-links">
+      <a href="#services" data-bs-toggle="collapse" data-bs-target="#mobile-menu">Services</a>
+      <a href="#gallery" data-bs-toggle="collapse" data-bs-target="#mobile-menu">Gallery</a>
+      <a href="#contact" data-bs-toggle="collapse" data-bs-target="#mobile-menu">Contact</a>
     </div>
   </div>
 </nav>
